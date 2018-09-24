@@ -11,7 +11,7 @@ namespace Projeto1.Models.DAO
 {
     public class OrdemServicoDAO
     {
-        {
+        
         private ConexaoBD con;
         public OrdemServicoDAO()
         {
@@ -66,5 +66,5 @@ namespace Projeto1.Models.DAO
             }
         }
     }
-}
+
 }

@@ -13,6 +13,5 @@ namespace Projeto1.Models.Objects
         public String Senha { get; set; }
         public String Email { get; set; }
         public int Id { get; set; }
-        public Endereco Endereco { get; set; }
     }
 }
