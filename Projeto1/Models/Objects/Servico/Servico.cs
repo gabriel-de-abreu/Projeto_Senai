@@ -11,5 +11,6 @@ namespace Projeto1.Models.Objects
         public String Nome { get; set; }
         public float Valor { get; set; }
         public int TempoMedio { get; set; }
+
     }
 }
