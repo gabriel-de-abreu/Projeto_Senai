@@ -72,10 +72,10 @@
                         <asp:TextBox ID="Complemento" runat="server"></asp:TextBox>
                     </div>
                     <div class="input-main">
-                        <asp:Button ID="CadastrarEndereco" runat="server" Text="Cadastrar" />
-                        <asp:Button ID="ConsultarEndereco" runat="server" Text="Consultar" />
-                        <asp:Button ID="AtualizarEndereco" runat="server" Text="Atualizar" />
-                        <asp:Button ID="DeletarEndereco" runat="server" Text="Deletar" />
+                        <asp:Button ID="CadastrarEndereco" runat="server" Text="Cadastrar" OnClick="CadastrarEndereco_Click" />
+                        <asp:Button ID="ConsultarEndereco" runat="server" Text="Consultar" OnClick="ConsultarEndereco_Click" />
+                        <asp:Button ID="AtualizarEndereco" runat="server" Text="Atualizar" OnClick="AtualizarEndereco_Click" />
+                        <asp:Button ID="DeletarEndereco" runat="server" Text="Deletar" OnClick="DeletarEndereco_Click" />
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
         </div>
         <div class="line"></div>
 
-        <div class="box float-left">
+        <div class="box input-main float-left box-border">
             <asp:GridView ID="gridClientes" runat="server" AutoGenerateColumns="False" OnRowCommand="gridClientes_RowCommand">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
@@ -138,6 +138,18 @@
                             <asp:LinkButton ID="clientSelect" runat="server" CommandName="Select" CommandArgument='<%# Bind("idCliente") %>'>Selecionar</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+        <div class ="box input-main float-left">
+            <asp:GridView ID="gridEnderecos" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="idEndereco" HeaderText="ID" />
+                    <asp:BoundField DataField="ruaEndereco" HeaderText="Rua" />
+                    <asp:BoundField DataField="numeroEndereco" HeaderText="Número" />
+                    <asp:BoundField DataField="bairroEndereco" HeaderText="Bairro" />
+                    <asp:BoundField DataField="complementoEndereco" HeaderText="Complemento" />
+                    <asp:BoundField DataField="cepEndereco" HeaderText="CEP" />
                 </Columns>
             </asp:GridView>
         </div>

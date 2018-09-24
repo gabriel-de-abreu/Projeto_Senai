@@ -38,6 +38,9 @@ label {
 .float-left{
     float:left;
 }
+table{
+    margin: 0 auto;
+}
 .input-main{
     text-align:center;
 }

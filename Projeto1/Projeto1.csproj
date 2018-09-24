@@ -95,6 +95,7 @@
     <Compile Include="Models\DAO\OrdemServicoDAO.cs" />
     <Compile Include="Models\DAO\RegistroDAO.cs" />
     <Compile Include="Models\DAO\ServicoDAO.cs" />
+    <Compile Include="Models\Objects\Servico\OS_Servico.cs" />
     <Compile Include="Models\Objects\Servico\Registro.cs" />
     <Compile Include="Models\Objects\Servico\OrdemServico.cs" />
     <Compile Include="Models\Objects\Pessoa\Cliente.cs" />
