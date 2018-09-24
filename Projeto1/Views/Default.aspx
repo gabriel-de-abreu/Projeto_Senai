@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div class =" input-main">
-                <asp:Button ID="CadastrarCliente" runat="server" Text="Cadastro de Cliente" />
-                <asp:Button ID="CadastrarEmpresa" runat="server" Text="Cadastro de Empresa" />
+                <asp:Button ID="CadastrarCliente" runat="server" Text="Cadastro de Cliente" OnClick="CadastrarCliente_Click" />
+                <asp:Button ID="CadastrarEmpresa" runat="server" Text="Cadastro de Empresa" OnClick="CadastrarEmpresa_Click" />
             </div>
         </div>
     </form>

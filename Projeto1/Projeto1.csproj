@@ -80,7 +80,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\Default.aspx" />
-    <Content Include="Views\Pessoas\Cliente.aspx" />
+    <Content Include="Views\Pessoas\vwCliente.aspx" />
     <Content Include="Views\Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -109,12 +109,12 @@
     <Compile Include="Views\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pessoas\Cliente.aspx.cs">
-      <DependentUpon>Cliente.aspx</DependentUpon>
+    <Compile Include="Views\Pessoas\vwCliente.aspx.cs">
+      <DependentUpon>vwCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Pessoas\Cliente.aspx.designer.cs">
-      <DependentUpon>Cliente.aspx</DependentUpon>
+    <Compile Include="Views\Pessoas\vwCliente.aspx.designer.cs">
+      <DependentUpon>vwCliente.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

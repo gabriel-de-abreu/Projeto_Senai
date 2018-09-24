@@ -13,5 +13,15 @@ namespace Projeto1.Views
         {
 
         }
+
+        protected void CadastrarCliente_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Pessoas/vwCliente.aspx");
+        }
+
+        protected void CadastrarEmpresa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

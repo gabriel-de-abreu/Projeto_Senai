@@ -10,7 +10,7 @@
 namespace Projeto1.Views.Pessoas {
     
     
-    public partial class Cliente {
+    public partial class vwCliente {
         
         /// <summary>
         /// Controle form1.
@@ -31,49 +31,49 @@ namespace Projeto1.Views.Pessoas {
         protected global::System.Web.UI.WebControls.TextBox idCliente;
         
         /// <summary>
-        /// Controle Nome.
+        /// Controle txtNome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Nome;
+        protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// Controle Rg.
+        /// Controle txtRg.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Rg;
+        protected global::System.Web.UI.WebControls.TextBox txtRg;
         
         /// <summary>
-        /// Controle Cpf.
+        /// Controle txtCpf.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cpf;
+        protected global::System.Web.UI.WebControls.TextBox txtCpf;
         
         /// <summary>
-        /// Controle Email.
+        /// Controle txtEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// Controle Senha.
+        /// Controle txtSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Senha;
+        protected global::System.Web.UI.WebControls.TextBox txtSenha;
         
         /// <summary>
         /// Controle CadatrarCliente.
@@ -200,5 +200,14 @@ namespace Projeto1.Views.Pessoas {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button DeletarEndereco;
+        
+        /// <summary>
+        /// Controle Resultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Resultado;
     }
 }
