@@ -204,6 +204,7 @@ namespace Projeto1.Views.Pessoas
 
         private void SetAddressData(Endereco endereco)
         {
+            enderecoId.Text = endereco.Id.ToString();
             Bairro.Text = endereco.Bairro;
             Cep.Text = endereco.Cep;
             Complemento.Text = endereco.Complemento;
@@ -224,13 +225,8 @@ namespace Projeto1.Views.Pessoas
             LoadAddressTable();
         }
 
-        protected void ConsultarEndereco_Click(object sender, EventArgs e)
+        private void BuscarEndereco(int id)
         {
-            int id = GetAddressId();
-            if (id == -1)
-            {
-                return;
-            }
             Endereco endereco = new EnderecoDAO().Buscar(new Endereco() { Id = id });
             if (endereco != null)
             {
@@ -242,6 +238,15 @@ namespace Projeto1.Views.Pessoas
                 Resultado.Text = "Endereço não encontrado!";
 
             }
+        }
+        protected void ConsultarEndereco_Click(object sender, EventArgs e)
+        {
+            int id = GetAddressId();
+            if (id == -1)
+            {
+                return;
+            }
+            BuscarEndereco(id);
         }
 
         protected void AtualizarEndereco_Click(object sender, EventArgs e)
@@ -283,6 +288,18 @@ namespace Projeto1.Views.Pessoas
             }
             LoadAddressTable();
 
+        }
+
+        protected void gridEnderecos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "Select":
+                    BuscarEndereco(Convert.ToInt32(e.CommandArgument));
+                    break;
+                default:
+                    return;
+            }
         }
     }
 }

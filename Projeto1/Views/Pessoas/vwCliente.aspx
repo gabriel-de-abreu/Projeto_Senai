@@ -142,14 +142,64 @@
             </asp:GridView>
         </div>
         <div class ="box input-main float-left">
-            <asp:GridView ID="gridEnderecos" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gridEnderecos" runat="server" AutoGenerateColumns="False" OnRowCommand="gridEnderecos_RowCommand">
                 <Columns>
-                    <asp:BoundField DataField="idEndereco" HeaderText="ID" />
-                    <asp:BoundField DataField="ruaEndereco" HeaderText="Rua" />
-                    <asp:BoundField DataField="numeroEndereco" HeaderText="Número" />
-                    <asp:BoundField DataField="bairroEndereco" HeaderText="Bairro" />
-                    <asp:BoundField DataField="complementoEndereco" HeaderText="Complemento" />
-                    <asp:BoundField DataField="cepEndereco" HeaderText="CEP" />
+                    <asp:TemplateField HeaderText="ID">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("idEndereco") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("idEndereco") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Rua">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("ruaEndereco") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("ruaEndereco") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Número">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("numeroEndereco") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("numeroEndereco") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Bairro">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("bairroEndereco") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("bairroEndereco") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Complemento">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("complementoEndereco") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("complementoEndereco") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="CEP">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("cepEndereco") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("cepEndereco") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="addressSelect" runat="server" CommandName="Select" CommandArgument='<%# Bind("idEndereco") %>'>Selecionar</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
