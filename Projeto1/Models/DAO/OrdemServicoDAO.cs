@@ -65,16 +65,6 @@ namespace Projeto1.Models.DAO
                 con.Conn.Close();
             }
         }
-        public Registro GeraOrdemServico(Servico serv)
-        {
-            OrdemServico ordServ = new OrdemServico()
-            {
-                DataSolicitacao = DateTime.Now.Date,
-                PrazoEntrega =
-            };
-
-            
-        }
-
+          
     }
 }
