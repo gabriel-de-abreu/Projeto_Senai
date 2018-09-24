@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <link rel="stylesheet" type="text/css" href="../Styles.css">
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class ="box input-main float-left">
             <asp:GridView ID="servicesGrid" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
@@ -23,10 +23,10 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Nome">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("noemServico") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("nomeServico") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("noemServico") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("nomeServico") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Valor">
@@ -56,6 +56,37 @@
                 </Columns>
             </asp:GridView>
         </div>
+        <div class="input-main box float-left">
+            <div class="input">
+                <label>Nome:</label>
+                <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
+            </div>
+            <div class=" input">
+                <label>Valor:</label>
+                <asp:TextBox ID="txtValor" runat="server"></asp:TextBox>
+            </div>
+            <div class=" input">
+                <label>Tempo Médio:</label>
+                <asp:TextBox ID="txtTempo" runat="server"></asp:TextBox>
+            </div>
+             <div class=" input">
+                <label>Data da Solicitação:</label>
+                <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
+            </div>
+            <div class=" input">
+                <label>Status:</label>
+                <asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
+            </div>
+            <div class=" input">
+                <label>Quantidade:</label>
+                <asp:TextBox ID="txtQuantidade" runat="server"></asp:TextBox>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="input-main">
+            <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" />
+        </div>
+        <div class="line"></div>
     </form>
 </body>
 </html>

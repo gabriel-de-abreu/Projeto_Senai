@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto1.Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,11 +12,12 @@ namespace Projeto1.Views.Servicos
     {
         private void LoadServicesTable()
         {
-            servicesGrid.DataSource = null;
+            servicesGrid.DataSource = new ServicoDAO().ListarTodos("");
+            servicesGrid.DataBind();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LoadServicesTable();
         }
     }
 }
