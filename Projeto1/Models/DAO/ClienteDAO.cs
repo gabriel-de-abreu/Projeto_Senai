@@ -94,7 +94,9 @@ namespace Projeto1.Models.DAO
                     }
                     else return null;
                 }
-                catch (Exception e) { return null; }
+                catch (Exception e) {
+                    return null;
+                }
                 finally
                 {
                     con.Conn.Close();
