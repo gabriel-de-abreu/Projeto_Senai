@@ -13,6 +13,7 @@ namespace Projeto1.Models.Objects
         public DateTime PrazoEntrega { get; set; }
         public float Total { get; set; }
         public String Status { get; set; }
+        public List<Servico> Servicos { get; set; } 
 
     }
 }
