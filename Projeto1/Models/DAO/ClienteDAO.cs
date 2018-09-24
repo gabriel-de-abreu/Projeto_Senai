@@ -78,11 +78,14 @@ namespace Projeto1.Models.DAO
             {
                 try
                 {
-                    string sql = "INSERT INTO Cliente (nomeCliente, cpfCliente, rgCliente) VALUES (@nome, @cpf, @rg);";
+                    string sql = "INSERT INTO Cliente (nomeCliente, cpfCliente, rgCliente, emailCliente, senhaCliente) VALUES (@nome, @cpf, @rg, @email, @senha);";
                     con.Command.CommandText = sql;
                     con.Command.Parameters.AddWithValue("@nome", c.Nome);
                     con.Command.Parameters.AddWithValue("@cpf", c.Cpf);
                     con.Command.Parameters.AddWithValue("@rg", c.Rg);
+                    con.Command.Parameters.AddWithValue("@email", c.Rg);
+                    con.Command.Parameters.AddWithValue("@senha", c.Rg);
+
                     int retorno = con.Command.ExecuteNonQuery();
                     if (retorno > 0)
                     {
@@ -105,12 +108,14 @@ namespace Projeto1.Models.DAO
             try
             {
                 string sql = "UPDATE Cliente SET nomeCliente = @nome, " +
-                    "cpfCliente=@cpf, rgCliente=@rg WHERE idCliente =@id;";
+                    "cpfCliente=@cpf, rgCliente=@rg, emailCliente=@email, senhaCliente=@senha WHERE idCliente =@id;";
                 con.Command.CommandText = sql;
                 con.Command.Parameters.AddWithValue("@nome", c.Nome);
                 con.Command.Parameters.AddWithValue("@cpf", c.Cpf);
                 con.Command.Parameters.AddWithValue("@rg", c.Rg);
                 con.Command.Parameters.AddWithValue("@id", c.Id);
+                con.Command.Parameters.AddWithValue("@email", c.Rg);
+                con.Command.Parameters.AddWithValue("@senha", c.Rg);
                 int retorno = con.Command.ExecuteNonQuery();
                 return retorno > 0 ? c : null;
             }
