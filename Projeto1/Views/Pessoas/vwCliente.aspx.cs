@@ -11,14 +11,40 @@ namespace Projeto1.Views.Pessoas
 {
     public partial class vwCliente : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        private void CarregaCliente(Cliente cliente)
         {
-
+            idCliente.Text = cliente.Id.ToString();;
+            txtNome.Text = cliente.Nome;
+            txtCpf.Text = cliente.Cpf;
+            txtEmail.Text = cliente.Email;
+            txtRg.Text = cliente.Rg;
         }
 
-        protected void CadatrarCliente_Click(object sender, EventArgs e)
+        private void LimpaCliente()
         {
-            Cliente cliente = new Cliente()
+            txtNome.Text = "";
+            txtCpf.Text = "";
+            txtEmail.Text = "";
+            txtRg.Text = "";
+            txtSenha.Text = "";
+        }
+
+        private int GetClientId()
+        {
+            int id = -1;
+            try
+            {
+                return Convert.ToInt32(idCliente.Text);
+            }
+            catch (Exception)
+            {
+                Resultado.Text = "Id inválido!";
+                return id;
+            }
+        }
+        private Cliente GetClientData()
+        {
+            return new Cliente()
             {
                 Nome = txtNome.Text,
                 Cpf = txtCpf.Text,
@@ -26,8 +52,23 @@ namespace Projeto1.Views.Pessoas
                 Senha = txtSenha.Text,
                 Rg = txtRg.Text
             };
+        }
 
-            if(new ClienteDAO().Inserir(cliente) != null)
+        private void LoadClientTable()
+        {
+            gridClientes.DataSource = new ClienteDAO().ListarTodos("");
+            gridClientes.DataBind();
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            LoadClientTable();
+        }
+
+        protected void CadatrarCliente_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = GetClientData();
+
+            if (new ClienteDAO().Inserir(cliente) != null)
             {
                 Resultado.Text = "Cliente inserido com sucesso!";
             }
@@ -36,8 +77,86 @@ namespace Projeto1.Views.Pessoas
                 Resultado.Text = "Falha ao inserir cliente!";
 
             }
+            LoadClientTable();
+        }
+
+        private void BuscaCliente(int id)
+        {
+            Cliente cliente = new ClienteDAO().BuscarPorId(id);
+            if (cliente != null)
+            {
+                CarregaCliente(cliente);
+                Resultado.Text = "Cliente encontrado com sucesso!";
+            }
+            else
+            {
+                LimpaCliente();
+                Resultado.Text = "Cliente não encontrado!";
+
+            }
+        }
+        protected void ConsultarCliente_Click(object sender, EventArgs e)
+        {
+            int id = GetClientId();
+
+            if (id == -1)
+            {
+                return;
+            }
+            BuscaCliente(id);
+        }
+
+        protected void AtualizarCliente_Click(object sender, EventArgs e)
+        {
+            int id = GetClientId();
+            if (id == -1)
+            {
+                return;
+            }
+
+            Cliente cliente = GetClientData();
+            cliente.Id = id;
+            if (new ClienteDAO().Alterar(cliente) != null)
+            {
+                Resultado.Text = "Cliente atualizado com sucesso!";
+            }
+            else
+            {
+                Resultado.Text = "Não foi possível alterar!";
+            }
+            LoadClientTable();
 
         }
 
+        protected void DeletarCliente_Click(object sender, EventArgs e)
+        {
+            int id = GetClientId();
+            if (id == -1)
+            {
+                return;
+            }
+            if (new ClienteDAO().Deletar(new Cliente() { Id = id }) != null)
+            {
+                Resultado.Text = "Cliente Deletado com sucesso!";
+            }
+            else
+            {
+                Resultado.Text = "Não foi possível deletar";
+            }
+            LoadClientTable();
+
+        }
+
+        protected void gridClientes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "Select":
+                    BuscaCliente(Convert.ToInt32(e.CommandArgument));
+                    break;
+                default:
+                    return;
+            }
+        }
     }
 }
