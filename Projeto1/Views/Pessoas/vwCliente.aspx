@@ -39,9 +39,9 @@
                     </div>
                     <div class="input-main">
                         <asp:Button ID="CadatrarCliente" runat="server" Text="Cadastrar" OnClick="CadatrarCliente_Click" />
-                        <asp:Button ID="ConsultarCliente" runat="server" Text="Consultar" />
-                        <asp:Button ID="AtualizarCliente" runat="server" Text="Atualizar" />
-                        <asp:Button ID="DeletarCliente" runat="server" Text="Deletar" />
+                        <asp:Button ID="ConsultarCliente" runat="server" Text="Consultar" OnClick="ConsultarCliente_Click" />
+                        <asp:Button ID="AtualizarCliente" runat="server" Text="Atualizar" OnClick="AtualizarCliente_Click" />
+                        <asp:Button ID="DeletarCliente" runat="server" Text="Deletar" OnClick="DeletarCliente_Click" />
                     </div>
                 </div>
             </div>
@@ -86,7 +86,61 @@
             <asp:Label ID="Resultado" runat="server" Text="Label"></asp:Label>
         </div>
         <div class="line"></div>
-    </form>
 
+        <div class="box float-left">
+            <asp:GridView ID="gridClientes" runat="server" AutoGenerateColumns="False" OnRowCommand="gridClientes_RowCommand">
+                <Columns>
+                    <asp:TemplateField HeaderText="ID">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("idCliente") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("idCliente") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nome">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("nomeCliente") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("nomeCliente") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="CPF">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("cpfCliente") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("cpfCliente") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="RG">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("rgCliente") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("rgCliente") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Email">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("emailCliente") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("emailCliente") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="clientSelect" runat="server" CommandName="Select" CommandArgument='<%# Bind("idCliente") %>'>Selecionar</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+    </form>
 </body>
 </html>
