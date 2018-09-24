@@ -24,8 +24,7 @@ namespace Projeto1.Models.DAO
                 DataTable table = new DataTable();
                 MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM OrdemServico;", con.Conn);
                 sqlData.Fill(table);
-
-
+                
                 return table;
             }
             catch (Exception e) { return null; }
