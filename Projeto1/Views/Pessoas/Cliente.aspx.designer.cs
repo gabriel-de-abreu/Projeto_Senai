@@ -166,39 +166,39 @@ namespace Projeto1.Views.Pessoas {
         protected global::System.Web.UI.WebControls.TextBox Complemento;
         
         /// <summary>
-        /// Controle Button1.
+        /// Controle CadastrarEndereco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button CadastrarEndereco;
         
         /// <summary>
-        /// Controle Button2.
+        /// Controle ConsultarEndereco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button ConsultarEndereco;
         
         /// <summary>
-        /// Controle Button3.
+        /// Controle AtualizarEndereco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button AtualizarEndereco;
         
         /// <summary>
-        /// Controle Button4.
+        /// Controle DeletarEndereco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button DeletarEndereco;
     }
 }
