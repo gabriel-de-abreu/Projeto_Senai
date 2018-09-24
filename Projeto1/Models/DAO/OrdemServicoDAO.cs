@@ -24,7 +24,7 @@ namespace Projeto1.Models.DAO
                 DataTable table = new DataTable();
                 MySqlDataAdapter sqlData = new MySqlDataAdapter("SELECT * FROM OrdemServico;", con.Conn);
                 sqlData.Fill(table);
-                
+
                 return table;
             }
             catch (Exception e) { return null; }
@@ -46,14 +46,16 @@ namespace Projeto1.Models.DAO
                 {
                     ClienteDAO clienteDao = new ClienteDAO();
                     reader.Read();
+
                     return new OrdemServico()
                     {
                         Status = reader["statusOrdemServico"].ToString(),
-                        DataSolicitacao = DateTime.Parse( reader["dataSolicitacaoOrdemServico"].ToString()).Date,
-                        PrazoEntrega = DateTime.Parse(reader["prazoEntregaOrdemServico"].ToString()).Date,
+                        DataSolicitacao = DateTime.Parse(reader["dataSolicitacaoOrdemServico"].ToString()).Date,
+                        PrazoEntrega = int.Parse(reader["prazoEntregaOrdemServico"].ToString()),
                         Total = float.Parse(reader["totalOrdemServico"].ToString()),
                         Id = int.Parse(reader["idOrdemServico"].ToString()),
-                        Cliente = clienteDao.BuscarPorId(int.Parse(reader["Cliente_idCliente"].ToString()))
+                        Cliente = clienteDao.BuscarPorId(int.Parse(reader["Cliente_idCliente"].ToString())),
+
                     };
                 }
                 else return null;
@@ -64,6 +66,27 @@ namespace Projeto1.Models.DAO
                 con.Conn.Close();
             }
         }
-          
+
+        public OrdemServico AddServico(OrdemServico os, Servico serv)
+        {
+            os.Servicos.Add(serv);
+            os.PrazoEntrega += serv.TempoMedio;
+            os.Total += serv.Valor;
+
+            return os;
+        }
+
+        public bool Insere(OrdemServico os, int quantidade)
+        {
+            OS_Servico oss = new OS_Servico();
+            OS_ServicoDAO ossDao = new OS_ServicoDAO();
+            foreach (var servico in os.Servicos)
+            {
+                oss = ossDao.GeraOS_Servico(os, servico, quantidade);
+                if (ossDao.Insere(oss) == null)
+                    return false;
+            }
+            return true;
+        }
     }
 }

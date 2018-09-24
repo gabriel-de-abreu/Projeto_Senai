@@ -52,9 +52,8 @@ namespace Projeto1.Models.DAO
                     return new OS_Servico()
                     {
                         Valor = float.Parse(reader["valorServico_OrdemServico"].ToString()),
-                        Prazo = DateTime.Parse(reader["prazoServico_OrdemServico"].ToString()).Date,
+                        Prazo = int.Parse(reader["prazoServico_OrdemServico"].ToString()),
                         Quantidade = Convert.ToInt32(reader["quantidadeServico_OrdemServico"].ToString()),
-                        Servico = servicoDao.BuscarPorId(Convert.ToInt32(reader["Servico_idServico"].ToString())),
                         OrdemServico = ordemServicoDao.BuscarPorId(Convert.ToInt32(reader["OrdemServico_idOrdemServico"].ToString()))
 
                     };
@@ -86,9 +85,8 @@ namespace Projeto1.Models.DAO
                     return new OS_Servico()
                     {
                         Valor = float.Parse(reader["valorServico_OrdemServico"].ToString()),
-                        Prazo = DateTime.Parse(reader["prazoServico_OrdemServico"].ToString()).Date,
+                        Prazo = int.Parse(reader["prazoServico_OrdemServico"].ToString()),
                         Quantidade = Convert.ToInt32(reader["quantidadeServico_OrdemServico"].ToString()),
-                        Servico = servicoDao.BuscarPorId(Convert.ToInt32(reader["Servico_idServico"].ToString())),
                         OrdemServico = ordemServicoDao.BuscarPorId(Convert.ToInt32(reader["OrdemServico_idOrdemServico"].ToString()))
                     };
                 }
@@ -104,11 +102,12 @@ namespace Projeto1.Models.DAO
 
         public OS_Servico Insere(OS_Servico osServico)
         {
+            int retorno = 0;
             try
             {
                 string sql = "INSERT INTO Servico_OrdemServico (quantidadeServico_OrdemServico, valorServico_OrdemServico," +
-                    " prazoServico_OrdemServico, Servico_idServico, OrdemServico_idOrdemServico) VALUES" +
-                    " (@quantidade, @valor, @prazo, @idServico, @idOrdemServico);";
+                " prazoServico_OrdemServico, Servico_idServico, OrdemServico_idOrdemServico) VALUES" +
+                " (@quantidade, @valor, @prazo, @idServico, @idOrdemServico);";
                 con.Command.CommandText = sql;
                 con.Command.Parameters.AddWithValue("@quantidade", osServico.Quantidade);
                 con.Command.Parameters.AddWithValue("@valor", osServico.Valor);
@@ -116,7 +115,9 @@ namespace Projeto1.Models.DAO
                 con.Command.Parameters.AddWithValue("@idServico", osServico.Servico.Id);
                 con.Command.Parameters.AddWithValue("@idOrdemServico", osServico.OrdemServico.Id);
 
-                int retorno = con.Command.ExecuteNonQuery();
+                retorno = con.Command.ExecuteNonQuery();
+
+
                 return retorno > 0 ? osServico : null;
 
             }
@@ -130,24 +131,19 @@ namespace Projeto1.Models.DAO
             }
         }
 
-        public OS_Servico GeraOS_Servico(OrdemServico ordServ, int quantidade)
+        public OS_Servico GeraOS_Servico(OrdemServico ordServ, Servico servico, int quantidade)
         {
-            float valor = 0;
-            int prazo = 0;
-            foreach (var item in ordServ.Servicos)
-            {
-                valor += item.Valor;
-                prazo += item.TempoMedio;
-            }
 
             OS_Servico os = new OS_Servico()
             {
                 OrdemServico = ordServ,
+                Servico = servico,
                 Quantidade = quantidade,
                 Prazo = ordServ.PrazoEntrega,
-                Valor = valor,
+                Valor = servico.Valor,
             };
             return os;
         }
+
     }
 }

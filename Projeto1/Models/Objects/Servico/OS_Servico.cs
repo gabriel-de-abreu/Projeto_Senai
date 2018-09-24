@@ -9,8 +9,9 @@ namespace Projeto1.Models.Objects
     {
         public int Quantidade { get; set; }
         public float Valor { get; set; }
-        public DateTime Prazo { get; set; }
+        public int Prazo { get; set; }
         public OrdemServico OrdemServico { get; set; }
         public Servico Servico { get; set; }
+
     }
 }
