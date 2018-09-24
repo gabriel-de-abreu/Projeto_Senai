@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto1.Models.DAO;
+using Projeto1.Models.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,6 +24,20 @@ namespace Projeto1.Views
         protected void CadastrarEmpresa_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Logar_Click(object sender, EventArgs e)
+        {
+
+            Cliente cliente = new ClienteDAO().Login(new Cliente() { Email = Login.Text, Senha = Senha.Text });
+            if (cliente != null)
+            {
+                Response.Redirect("~/Views/Servicos/vwRegistrar.aspx");
+            }
+            else
+            {
+                //
+            }
         }
     }
 }

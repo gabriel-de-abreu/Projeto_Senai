@@ -5,7 +5,7 @@ button{
 }
 label {
     display: inline-block;
-    width: 95px;
+    width: 140px;
     text-align: right;
 }
 .input {
@@ -39,7 +39,11 @@ label {
     float:left;
 }
 table{
+
     margin: 0 auto;
+}
+.simple-margin{
+    margin-top:20px;
 }
 .input-main{
     text-align:center;
