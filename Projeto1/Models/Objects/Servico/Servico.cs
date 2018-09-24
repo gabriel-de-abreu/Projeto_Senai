@@ -7,9 +7,10 @@ namespace Projeto1.Models.Objects
 {
     public class Servico
     {
-        String Nome { get; set; }
-        String Id { get; set; }
-        float Valor { get; set;}
-        int TempoMedio { get; set; }
+        public int Id { get; set; }
+        public String Nome { get; set; }
+        public float Valor { get; set; }
+        public int TempoMedio { get; set; }
+
     }
 }

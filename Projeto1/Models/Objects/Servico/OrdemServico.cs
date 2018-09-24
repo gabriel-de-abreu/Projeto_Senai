@@ -7,10 +7,11 @@ namespace Projeto1.Models.Objects
 {
     public class OrdemServico
     {
-        int Id { get; set; }
-        DateTime DataSolicitacao { get; set; }
-        int PrazoEntrega { get; set; }
-        float Total { get; set; }
-        String Status { get; set; }
+        public int Id { get; set; }
+        public DateTime DataSolicitacao { get; set; }
+        public DateTime PrazoEntrega { get; set; }
+        public float Total { get; set; }
+        public String Status { get; set; }
+
     }
 }
