@@ -7,11 +7,12 @@ namespace Projeto1.Models.Objects
 {
     public class Cliente
     {
-        String Nome { get; set; }
-        String Cpf { get; set; }
-        String Rg { get; set; }
-        String Senha { get; set; }
-        String Email { get; set; }
-        Endereco Endereco { get; set; }
+        public String Nome { get; set; }
+        public String Cpf { get; set; }
+        public String Rg { get; set; }
+        public String Senha { get; set; }
+        public String Email { get; set; }
+        public int Id { get; set; }
+        public Endereco Endereco { get; set; }
     }
 }

@@ -7,9 +7,10 @@ namespace Projeto1.Models.Objects
 {
     public class Empresa
     {
-        String RazaoSocial { get; set; }
-        String Cnpj { get; set; }
-        String Email { get; set; }
-        String Senha { get; set; }
+        public String RazaoSocial { get; set; }
+        public String Cnpj { get; set; }
+        public String Email { get; set; }
+        public String Senha { get; set; }
+        public int Id { get; set; }
     }
 }
