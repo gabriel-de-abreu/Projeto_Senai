@@ -72,10 +72,10 @@
                         <asp:TextBox ID="Complemento" runat="server"></asp:TextBox>
                     </div>
                     <div>
-                        <asp:Button ID="Button1" runat="server" Text="Cadastrar" />
-                        <asp:Button ID="Button2" runat="server" Text="Consultar" />
-                        <asp:Button ID="Button3" runat="server" Text="Atualizar" />
-                        <asp:Button ID="Button4" runat="server" Text="Deletar" />
+                        <asp:Button ID="CadastrarEndereco" runat="server" Text="Cadastrar" />
+                        <asp:Button ID="ConsultarEndereco" runat="server" Text="Consultar" />
+                        <asp:Button ID="AtualizarEndereco" runat="server" Text="Atualizar" />
+                        <asp:Button ID="DeletarEndereco" runat="server" Text="Deletar" />
                     </div>
                 </div>
             </div>
