@@ -5,7 +5,7 @@ button{
 }
 label {
     display: inline-block;
-    width: 50px;
+    width: 95px;
     text-align: right;
 }
 .input {
@@ -17,6 +17,26 @@ label {
     margin-bottom:10px;
 }
 
+.box {
+    width: 49%;
+}
+
+.box-border{
+    border-right: 1px solid black;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.line{
+    margin-top:10px;
+    border-bottom: 1px solid black;
+}
+.float-left{
+    float:left;
+}
 .input-main{
     text-align:center;
 }
