@@ -81,6 +81,7 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Default.aspx" />
     <Content Include="Views\Pessoas\vwCliente.aspx" />
+    <Content Include="Views\Servicos\vwRegistrar.aspx" />
     <Content Include="Views\Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="Views\Pessoas\vwCliente.aspx.designer.cs">
       <DependentUpon>vwCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Servicos\vwRegistrar.aspx.cs">
+      <DependentUpon>vwRegistrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Servicos\vwRegistrar.aspx.designer.cs">
+      <DependentUpon>vwRegistrar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

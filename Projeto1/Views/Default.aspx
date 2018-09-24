@@ -21,7 +21,7 @@
                     <asp:TextBox ID="Senha" runat="server"></asp:TextBox>
                 </div>
                 <div class="input-buttom">
-                    <asp:Button ID="Logar" runat="server" Text="Logar" />
+                    <asp:Button ID="Logar" runat="server" Text="Logar" OnClick="Logar_Click" />
                 </div>
             </div>
             <div class =" input-main">
