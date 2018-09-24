@@ -83,8 +83,8 @@ namespace Projeto1.Models.DAO
                     con.Command.Parameters.AddWithValue("@nome", c.Nome);
                     con.Command.Parameters.AddWithValue("@cpf", c.Cpf);
                     con.Command.Parameters.AddWithValue("@rg", c.Rg);
-                    con.Command.Parameters.AddWithValue("@email", c.Rg);
-                    con.Command.Parameters.AddWithValue("@senha", c.Rg);
+                    con.Command.Parameters.AddWithValue("@email", c.Email);
+                    con.Command.Parameters.AddWithValue("@senha", c.Senha);
 
                     int retorno = con.Command.ExecuteNonQuery();
                     if (retorno > 0)
@@ -114,8 +114,8 @@ namespace Projeto1.Models.DAO
                 con.Command.Parameters.AddWithValue("@cpf", c.Cpf);
                 con.Command.Parameters.AddWithValue("@rg", c.Rg);
                 con.Command.Parameters.AddWithValue("@id", c.Id);
-                con.Command.Parameters.AddWithValue("@email", c.Rg);
-                con.Command.Parameters.AddWithValue("@senha", c.Rg);
+                con.Command.Parameters.AddWithValue("@email", c.Email);
+                con.Command.Parameters.AddWithValue("@senha", c.Senha);
                 int retorno = con.Command.ExecuteNonQuery();
                 return retorno > 0 ? c : null;
             }

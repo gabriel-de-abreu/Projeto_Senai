@@ -45,6 +45,7 @@ namespace Projeto1.Models.DAO
             {
                 if (reader.HasRows)
                 {
+                    ClienteDAO clienteDao = new ClienteDAO();
                     reader.Read();
                     return new OrdemServico()
                     {
@@ -53,7 +54,7 @@ namespace Projeto1.Models.DAO
                         PrazoEntrega = DateTime.Parse(reader["prazoEntregaOrdemServico"].ToString()).Date,
                         Total = float.Parse(reader["totalOrdemServico"].ToString()),
                         Id = int.Parse(reader["idOrdemServico"].ToString()),
-                        IdCliente = int.Parse(reader["Cliente_idCliente"].ToString())
+                        Cliente = clienteDao.BuscarPorId(int.Parse(reader["Cliente_idCliente"].ToString()))
                     };
                 }
                 else return null;
@@ -64,5 +65,16 @@ namespace Projeto1.Models.DAO
                 con.Conn.Close();
             }
         }
+        public Registro GeraOrdemServico(Servico serv)
+        {
+            OrdemServico ordServ = new OrdemServico()
+            {
+                DataSolicitacao = DateTime.Now.Date,
+                PrazoEntrega =
+            };
+
+            
+        }
+
     }
 }
