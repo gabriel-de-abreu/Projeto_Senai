@@ -39,7 +39,11 @@ label {
     float:left;
 }
 table{
+
     margin: 0 auto;
+}
+.simple-margin{
+    margin-top:20px;
 }
 .input-main{
     text-align:center;
