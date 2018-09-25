@@ -33,6 +33,7 @@ namespace Projeto1.Views
             Cliente cliente = new ClienteDAO().Login(new Cliente() { Email = Login.Text, Senha = Senha.Text });
             if (cliente != null)
             {
+                Session["client"] = cliente;
                 Response.Redirect("~/Views/Servicos/vwRegistrar.aspx");
             }
             else
@@ -46,7 +47,8 @@ namespace Projeto1.Views
             Empresa empresa = new EmpresaDAO().Login(new Empresa() { Email = Login.Text, Senha = Senha.Text });
             if (empresa != null)
             {
-
+                Session["empresa"] = empresa;
+                Response.Redirect("~/Views/Servicos/vwOrdemServico.aspx");
             }
             else
             {

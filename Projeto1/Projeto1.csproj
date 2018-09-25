@@ -82,6 +82,7 @@
     <Content Include="Views\Default.aspx" />
     <Content Include="Views\Pessoas\vwCliente.aspx" />
     <Content Include="Views\Pessoas\vwEmpresa.aspx" />
+    <Content Include="Views\Servicos\vwOrdemServico.aspx" />
     <Content Include="Views\Servicos\vwRegistrar.aspx" />
     <Content Include="Views\Styles.css" />
     <Content Include="Web.config" />
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="Views\Pessoas\vwEmpresa.aspx.designer.cs">
       <DependentUpon>vwEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Servicos\vwOrdemServico.aspx.cs">
+      <DependentUpon>vwOrdemServico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Servicos\vwOrdemServico.aspx.designer.cs">
+      <DependentUpon>vwOrdemServico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Servicos\vwRegistrar.aspx.cs">
       <DependentUpon>vwRegistrar.aspx</DependentUpon>
