@@ -35,7 +35,7 @@
                     </div>
                     <div class="input">
                         <label>Senha:</label>
-                        <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtSenha" runat="server" TextMode="Password"></asp:TextBox>
                     </div>
                     <div class="input-main">
                         <asp:Button ID="CadatrarCliente" runat="server" Text="Cadastrar" OnClick="CadatrarCliente_Click" />
@@ -202,6 +202,11 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+        </div>
+        <div class ="clearfix"></div>
+        <div class ="line"></div>
+        <div class ="input-main">
+            <asp:Button ID="VoltarLogin" runat="server" Text="Voltar" OnClick="VoltarLogin_Click" />
         </div>
     </form>
 </body>

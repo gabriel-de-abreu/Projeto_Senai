@@ -11,20 +11,22 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <div class ="input-main">
-                <div class="input">
-                    <label>Login:</label>
-                    <asp:TextBox ID="Login" runat="server"></asp:TextBox>
-                </div>  
-                <div class="input">
-                    <label>Senha:</label>
-                    <asp:TextBox ID="Senha" runat="server"></asp:TextBox>
+            <div class="input-main">
+                <div class="normalizer-div">
+                    <div class="input">
+                        <label>Login:</label>
+                        <asp:TextBox ID="Login" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="input">
+                        <label>Senha:</label>
+                        <asp:TextBox ID="Senha" runat="server"></asp:TextBox>
+                    </div>
                 </div>
-                <div class="input-buttom">
+                <div class="input-main input-buttom">
                     <asp:Button ID="Logar" runat="server" Text="Logar" OnClick="Logar_Click" />
                 </div>
             </div>
-            <div class =" input-main">
+            <div class=" input-main">
                 <asp:Button ID="CadastrarCliente" runat="server" Text="Cadastro de Cliente" OnClick="CadastrarCliente_Click" />
                 <asp:Button ID="CadastrarEmpresa" runat="server" Text="Cadastro de Empresa" OnClick="CadastrarEmpresa_Click" />
             </div>
