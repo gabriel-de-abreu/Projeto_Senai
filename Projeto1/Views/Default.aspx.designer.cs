@@ -49,6 +49,15 @@ namespace Projeto1.Views {
         protected global::System.Web.UI.WebControls.Button Logar;
         
         /// <summary>
+        /// Controle LogarEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LogarEmpresa;
+        
+        /// <summary>
         /// Controle CadastrarCliente.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,14 @@ namespace Projeto1.Views {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CadastrarEmpresa;
+        
+        /// <summary>
+        /// Controle lblResultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

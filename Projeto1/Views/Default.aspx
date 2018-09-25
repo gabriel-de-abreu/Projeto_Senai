@@ -23,7 +23,8 @@
                     </div>
                 </div>
                 <div class="input-main input-buttom">
-                    <asp:Button ID="Logar" runat="server" Text="Logar" OnClick="Logar_Click" />
+                    <asp:Button ID="Logar" runat="server" Text="Logar Cliente" OnClick="Logar_Click" />
+                    <asp:Button ID="LogarEmpresa" runat="server" Text="Logar Empresa" OnClick="LogarEmpresa_Click" />
                 </div>
             </div>
             <div class="input-main">
@@ -31,6 +32,8 @@
                 <asp:Button ID="CadastrarEmpresa" runat="server" Text="Cadastro de Empresa" OnClick="CadastrarEmpresa_Click" />
             </div>
         </div>
+         <div class ="line"></div>
+        <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
     </form>
 </body>
 </html>

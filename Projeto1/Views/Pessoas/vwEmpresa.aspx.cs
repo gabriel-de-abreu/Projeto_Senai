@@ -29,7 +29,7 @@ namespace Projeto1.Views.Pessoas
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if(new EmpresaDAO().Inserir(GetEmpresaData()) != null)
+            if (new EmpresaDAO().Inserir(GetEmpresaData()) != null)
             {
                 lblResultado.Text = "Empresa Cadastrada com sucesso!";
             }
@@ -37,6 +37,12 @@ namespace Projeto1.Views.Pessoas
             {
                 lblResultado.Text = "Falha ao cadastrar empresa!";
             }
+        }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Default.aspx");
+
         }
     }
 }

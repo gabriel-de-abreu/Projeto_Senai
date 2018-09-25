@@ -33,6 +33,8 @@
         </div>
         <div class ="line"></div>
         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+        <div class ="line"></div>
+        <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
     </form>
 </body>
 </html>
