@@ -152,7 +152,7 @@ namespace Projeto1.Views.Servicos
             ordemServico = osDao.Insere(ordemServico);
             if (ordemServico != null)
             {
-                lblResultado.Text = "Registros inseridos com  sucesso";
+                lblResultado.Text = "Registros inseridos com sucesso";
                 (Session["dataServices"] as DataTable).Clear();
                 LoadOsTable();
             }
@@ -167,6 +167,19 @@ namespace Projeto1.Views.Servicos
                 ossDao.Insere(oss);
             }
 
+        }
+
+        protected void gridOs_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DataTable table = Session["dataServices"] as DataTable;
+            int rowIndex = e.RowIndex;
+            table.Rows[rowIndex].Delete();
+            LoadOsTable();
+        }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Default.aspx");
         }
     }
 

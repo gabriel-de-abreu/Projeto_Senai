@@ -92,14 +92,61 @@
         </div>
         <div class="line"></div>
         <div class="input-main">
-            <asp:GridView ID="gridOs" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gridOs" runat="server" AutoGenerateColumns="False" OnRowDeleting="gridOs_RowDeleting">
                 <Columns>
-                    <asp:BoundField DataField="idService" HeaderText="ID" />
-                    <asp:BoundField DataField="nameService" HeaderText="Nome" />
-                    <asp:BoundField DataField="quantityService" HeaderText="Quantidade" />
-                    <asp:BoundField DataField="dateService" HeaderText="Data" />
-                    <asp:BoundField DataField="valueService" HeaderText="Valor" />
-                    <asp:BoundField DataField="timeService" HeaderText="Tempo Médio" />
+                    <asp:TemplateField HeaderText="ID">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("idService") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("idService") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nome">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("nameService") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("nameService") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Quantidade">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("quantityService") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("quantityService") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Data">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("dateService") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("dateService") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Valor">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("valueService") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("valueService") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Tempo Médio">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("timeService") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("timeService") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="excluir" runat="server" CommandName="Delete">Excluir</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
@@ -107,7 +154,11 @@
             <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" />
         </div>
         <div class="line"></div>
-        <asp:Label ID="lblResultado" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+        <div class="line"></div>
+        <div class="input-main simple-margin">
+            <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+        </div>
     </form>
 </body>
 </html>
