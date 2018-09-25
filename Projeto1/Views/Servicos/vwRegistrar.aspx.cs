@@ -79,14 +79,51 @@ namespace Projeto1.Views.Servicos
         private void AddRow(int id)
         {
             DataTable table = Session["dataServices"] as DataTable;
-            table.Rows.Add(id, txtNome.Text, Convert.ToInt32(txtTempo.Text) * Convert.ToInt32(txtQuantidade.Text), DateTime.Now, Convert.ToInt32(txtQuantidade.Text),
-                Convert.ToDouble(txtValor.Text) * Convert.ToInt32(txtQuantidade.Text));
+            try
+            {
+                table.Rows.Add(id, txtNome.Text, Convert.ToInt32(txtTempo.Text) * Convert.ToInt32(txtQuantidade.Text), DateTime.Now, Convert.ToInt32(txtQuantidade.Text),
+                    Convert.ToDouble(txtValor.Text) * Convert.ToInt32(txtQuantidade.Text));
+            }
+            catch (Exception)
+            {
+                lblResultado.Text = "Falha ao adicionar, confira os campos inseridos!";
+            }
+            DataTable newTable = SetupTable();
+            HashSet<int> ids = new HashSet<int>();
+            foreach (DataRow row in table.Rows)
+            {
+                ids.Add(Convert.ToInt32(row["idService"]));
+            }
+            foreach (int idT in ids)
+            {
+                var sumQuantidade = 0;
+                DateTime dateAux = DateTime.Now;
+                foreach (DataRow row in table.Rows)
+                {
+                    if (idT == Convert.ToInt32(row["idService"]))
+                    {
+                        sumQuantidade += Convert.ToInt32(row["quantityService"]);
+                        dateAux = Convert.ToDateTime(row["dateService"]);
+                    }
+                }
+                newTable.Rows.Add(idT, txtNome.Text, Convert.ToInt32(txtTempo.Text) * sumQuantidade, dateAux, sumQuantidade,
+                    Convert.ToDouble(txtValor.Text) * sumQuantidade);
+                sumQuantidade = 0;
+            }
+            Session["dataServices"] = newTable;
             LoadOsTable();
         }
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
-            AddRow(Convert.ToInt32(txtId.Text));
+            try
+            {
+                AddRow(Convert.ToInt32(txtId.Text));
+            }
+            catch (Exception)
+            {
+                lblResultado.Text = "Falha ao adicionar!";
+            }
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
@@ -108,18 +145,41 @@ namespace Projeto1.Views.Servicos
                 ordemServico.Total += ordemServico.Servicos[i].Valor;
                 ordemServico.DataSolicitacao = DateTime.Parse(table.Rows[i]["dateService"].ToString());
                 hora += int.Parse(table.Rows[i]["timeService"].ToString());
-                ordemServico.Cliente.Id = 1;//cliente.Id;
+                ordemServico.Cliente.Id = cliente.Id;
                 ordemServico.Status = txtStatus.Text;
                 ordemServico.PrazoEntrega = ordemServico.DataSolicitacao.AddHours(hora);
             }
             ordemServico = osDao.Insere(ordemServico);
-
+            if (ordemServico != null)
+            {
+                lblResultado.Text = "Registros inseridos com sucesso";
+                (Session["dataServices"] as DataTable).Clear();
+                LoadOsTable();
+            }
+            else
+            {
+                lblResultado.Text = "Falha ao inserir";
+                return;
+            }
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 oss = ossDao.GeraOS_Servico(ordemServico, ordemServico.Servicos[i], int.Parse(table.Rows[i]["quantityService"].ToString()));
                 ossDao.Insere(oss);
             }
 
+        }
+
+        protected void gridOs_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DataTable table = Session["dataServices"] as DataTable;
+            int rowIndex = e.RowIndex;
+            table.Rows[rowIndex].Delete();
+            LoadOsTable();
+        }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Default.aspx");
         }
     }
 
