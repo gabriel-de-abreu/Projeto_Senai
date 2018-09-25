@@ -92,7 +92,7 @@
         </div>
         <div class="line"></div>
         <div class="input-main">
-            <asp:GridView ID="gridOs" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gridOs" runat="server" AutoGenerateColumns="False" >
                 <Columns>
                     <asp:BoundField DataField="idService" HeaderText="ID" />
                     <asp:BoundField DataField="nameService" HeaderText="Nome" />
@@ -104,7 +104,7 @@
             </asp:GridView>
         </div>
         <div class ="input-main simple-margin">
-            <asp:Button ID="Button1" runat="server" Text="Registrar" />
+            <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" />
         </div>
         <div class="line"></div>
     </form>

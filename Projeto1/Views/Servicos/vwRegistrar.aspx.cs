@@ -31,13 +31,13 @@ namespace Projeto1.Views.Servicos
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["dataServices"] == null)
+            if (Session["dataServices"] == null)
             {
                 Session["dataServices"] = SetupTable();
             }
             LoadServicesTable();
             LoadOsTable();
-            
+
         }
 
         private void BuscarServico(int id)
@@ -68,8 +68,8 @@ namespace Projeto1.Views.Servicos
         private DataTable SetupTable()
         {
             DataTable table = new DataTable();
-            table.Columns.Add("idService",typeof(int));
-            table.Columns.Add("nameService",typeof(String));
+            table.Columns.Add("idService", typeof(int));
+            table.Columns.Add("nameService", typeof(String));
             table.Columns.Add("timeService", typeof(int));
             table.Columns.Add("dateService", typeof(DateTime));
             table.Columns.Add("quantityService", typeof(int));
@@ -88,7 +88,40 @@ namespace Projeto1.Views.Servicos
         {
             AddRow(Convert.ToInt32(txtId.Text));
         }
+
+        protected void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            OS_Servico oss = new OS_Servico();
+            OS_ServicoDAO ossDao = new OS_ServicoDAO();
+            ServicoDAO servicoDao = new ServicoDAO();
+            OrdemServico ordemServico = new OrdemServico();
+            ordemServico.Servicos = new List<Servico>();
+            OrdemServicoDAO osDao = new OrdemServicoDAO();
+            DataTable table = Session["dataServices"] as DataTable;
+            Cliente cliente = Session["client"] as Cliente;
+
+            int hora = 0;
+
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                ordemServico.Servicos.Add(servicoDao.BuscarPorId(int.Parse(table.Rows[i]["idService"].ToString())));
+                ordemServico.Total += ordemServico.Servicos[i].Valor;
+                ordemServico.DataSolicitacao = DateTime.Parse(table.Rows[i]["dateService"].ToString());
+                hora += int.Parse(table.Rows[i]["timeService"].ToString());
+                ordemServico.Cliente.Id = 1;//cliente.Id;
+                ordemServico.Status = txtStatus.Text;
+                ordemServico.PrazoEntrega = ordemServico.DataSolicitacao.AddHours(hora);
+            }
+            ordemServico = osDao.Insere(ordemServico);
+
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                oss = ossDao.GeraOS_Servico(ordemServico, ordemServico.Servicos[i], int.Parse(table.Rows[i]["quantityService"].ToString()));
+                ossDao.Insere(oss);
+            }
+
+        }
     }
 
-    
+
 }

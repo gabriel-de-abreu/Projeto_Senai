@@ -89,10 +89,13 @@ namespace Projeto1.Models.DAO
 
         public Servico BuscarPorId(int id)
         {
+            con.Conn.Close();
+            con.Conn.Open();
             string comando = "SELECT * FROM Servico WHERE idServico = @id; ";
             con.Command.CommandText = comando;
             con.Command.Parameters.AddWithValue("@id", id);
             MySqlDataReader reader = con.Command.ExecuteReader();
+            con.Command.Parameters.Clear();
             try
             {
                 if (reader.HasRows)

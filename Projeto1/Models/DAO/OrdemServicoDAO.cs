@@ -51,7 +51,7 @@ namespace Projeto1.Models.DAO
                     {
                         Status = reader["statusOrdemServico"].ToString(),
                         DataSolicitacao = DateTime.Parse(reader["dataSolicitacaoOrdemServico"].ToString()).Date,
-                        PrazoEntrega = int.Parse(reader["prazoEntregaOrdemServico"].ToString()),
+                        PrazoEntrega = DateTime.Parse(reader["prazoEntregaOrdemServico"].ToString()),
                         Total = float.Parse(reader["totalOrdemServico"].ToString()),
                         Id = int.Parse(reader["idOrdemServico"].ToString()),
                         Cliente = clienteDao.BuscarPorId(int.Parse(reader["Cliente_idCliente"].ToString())),
@@ -70,23 +70,47 @@ namespace Projeto1.Models.DAO
         public OrdemServico AddServico(OrdemServico os, Servico serv)
         {
             os.Servicos.Add(serv);
-            os.PrazoEntrega += serv.TempoMedio;
+            os.PrazoEntrega.AddHours(serv.TempoMedio);
             os.Total += serv.Valor;
 
             return os;
         }
 
-        public bool Insere(OrdemServico os, int quantidade)
+     
+
+        public OrdemServico Insere(OrdemServico os)
         {
-            OS_Servico oss = new OS_Servico();
-            OS_ServicoDAO ossDao = new OS_ServicoDAO();
-            foreach (var servico in os.Servicos)
+            if (os != null)
             {
-                oss = ossDao.GeraOS_Servico(os, servico, quantidade);
-                if (ossDao.Insere(oss) == null)
-                    return false;
+                try
+                {
+                    string sql = "INSERT INTO OrdemServico (dataSolicitacaoOrdemServico, prazoEntregaOrdemServico, " +
+                        "totalOrdemServico, statusOrdemServico, Cliente_idCliente) VALUES (@data, @prazo, @total, @status, @idCliente);";
+                    con.Command.CommandText = sql;
+                    con.Command.Parameters.AddWithValue("@data", os.DataSolicitacao);
+                    con.Command.Parameters.AddWithValue("@prazo", os.PrazoEntrega);
+                    con.Command.Parameters.AddWithValue("@total", os.Total);
+                    con.Command.Parameters.AddWithValue("@status", os.Status);
+                    con.Command.Parameters.AddWithValue("@idCliente", os.Cliente.Id);
+
+                    int retorno = con.Command.ExecuteNonQuery();
+                    if (retorno > 0)
+                    {
+                        os.Id = (int)con.Command.LastInsertedId;
+                        return os;
+                    }
+                    else return null;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
+                finally
+                {
+                    con.Conn.Close();
+                }
             }
-            return true;
+            else return null;
         }
     }
 }

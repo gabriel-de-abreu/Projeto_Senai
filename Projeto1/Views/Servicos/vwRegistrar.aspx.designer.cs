@@ -112,12 +112,12 @@ namespace Projeto1.Views.Servicos {
         protected global::System.Web.UI.WebControls.GridView gridOs;
         
         /// <summary>
-        /// Controle Button1.
+        /// Controle btnRegistrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnRegistrar;
     }
 }

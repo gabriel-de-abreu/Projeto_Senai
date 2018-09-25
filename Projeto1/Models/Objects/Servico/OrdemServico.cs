@@ -10,10 +10,18 @@ namespace Projeto1.Models.Objects
         public int Id { get; set; }
         public Cliente Cliente { get; set; }
         public DateTime DataSolicitacao { get; set; }
-        public int PrazoEntrega { get; set; }
+        public DateTime PrazoEntrega { get; set; }
         public float Total { get; set; }
         public String Status { get; set; }
-        public List<Servico> Servicos { get; set; } 
+        public List<Servico> Servicos { get; set; }
+
+        public OrdemServico()
+        {
+            Servicos = new List<Servico>();
+            Cliente = new Cliente();
+        }
 
     }
+
+    
 }

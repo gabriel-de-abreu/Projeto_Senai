@@ -52,7 +52,7 @@ namespace Projeto1.Models.DAO
                     return new OS_Servico()
                     {
                         Valor = float.Parse(reader["valorServico_OrdemServico"].ToString()),
-                        Prazo = int.Parse(reader["prazoServico_OrdemServico"].ToString()),
+                        Prazo = DateTime.Parse(reader["prazoServico_OrdemServico"].ToString()),
                         Quantidade = Convert.ToInt32(reader["quantidadeServico_OrdemServico"].ToString()),
                         OrdemServico = ordemServicoDao.BuscarPorId(Convert.ToInt32(reader["OrdemServico_idOrdemServico"].ToString()))
 
@@ -85,7 +85,7 @@ namespace Projeto1.Models.DAO
                     return new OS_Servico()
                     {
                         Valor = float.Parse(reader["valorServico_OrdemServico"].ToString()),
-                        Prazo = int.Parse(reader["prazoServico_OrdemServico"].ToString()),
+                        Prazo = DateTime.Parse(reader["prazoServico_OrdemServico"].ToString()),
                         Quantidade = Convert.ToInt32(reader["quantidadeServico_OrdemServico"].ToString()),
                         OrdemServico = ordemServicoDao.BuscarPorId(Convert.ToInt32(reader["OrdemServico_idOrdemServico"].ToString()))
                     };
@@ -102,6 +102,8 @@ namespace Projeto1.Models.DAO
 
         public OS_Servico Insere(OS_Servico osServico)
         {
+            con.Conn.Close();
+            con.Conn.Open();
             int retorno = 0;
             try
             {
@@ -116,7 +118,7 @@ namespace Projeto1.Models.DAO
                 con.Command.Parameters.AddWithValue("@idOrdemServico", osServico.OrdemServico.Id);
 
                 retorno = con.Command.ExecuteNonQuery();
-
+                con.Command.Parameters.Clear();
 
                 return retorno > 0 ? osServico : null;
 
