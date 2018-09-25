@@ -59,27 +59,27 @@
         <div class="input-main box float-left">
             <div class="input">
                 <label>Id:</label>
-                <asp:TextBox ID="txtId" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtId" runat="server" Enabled="False"></asp:TextBox>
             </div>
             <div class="input">
                 <label>Nome:</label>
-                <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNome" runat="server" Enabled="False"></asp:TextBox>
             </div>
             <div class=" input">
                 <label>Valor:</label>
-                <asp:TextBox ID="txtValor" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtValor" runat="server" Enabled="False"></asp:TextBox>
             </div>
             <div class=" input">
                 <label>Tempo Médio:</label>
-                <asp:TextBox ID="txtTempo" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtTempo" runat="server" Enabled="False"></asp:TextBox>
             </div>
             <div class=" input">
                 <label>Data da Solicitação:</label>
-                <asp:TextBox ID="txtData" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtData" runat="server" Enabled="False"></asp:TextBox>
             </div>
             <div class=" input">
                 <label>Status:</label>
-                <asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtStatus" runat="server" Enabled="False"></asp:TextBox>
             </div>
             <div class=" input">
                 <label>Quantidade:</label>
@@ -92,7 +92,7 @@
         </div>
         <div class="line"></div>
         <div class="input-main">
-            <asp:GridView ID="gridOs" runat="server" AutoGenerateColumns="False" >
+            <asp:GridView ID="gridOs" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="idService" HeaderText="ID" />
                     <asp:BoundField DataField="nameService" HeaderText="Nome" />
@@ -103,10 +103,11 @@
                 </Columns>
             </asp:GridView>
         </div>
-        <div class ="input-main simple-margin">
+        <div class="input-main simple-margin">
             <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" />
         </div>
         <div class="line"></div>
+        <asp:Label ID="lblResultado" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

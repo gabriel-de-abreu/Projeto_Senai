@@ -19,7 +19,7 @@
                     </div>
                     <div class="input">
                         <label>Senha:</label>
-                        <asp:TextBox ID="Senha" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="Senha" runat="server" TextMode="Password"></asp:TextBox>
                     </div>
                 </div>
                 <div class="input-main input-buttom">

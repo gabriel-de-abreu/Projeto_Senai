@@ -25,7 +25,7 @@
             </div>
             <div class="input">
                 <label>Senha:</label>
-                <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSenha" runat="server" TextMode="Password"></asp:TextBox>
             </div>
             <div class="input-buttom-margin">
                 <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" />

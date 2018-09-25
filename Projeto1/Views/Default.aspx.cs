@@ -33,6 +33,8 @@ namespace Projeto1.Views
             Cliente cliente = new ClienteDAO().Login(new Cliente() { Email = Login.Text, Senha = Senha.Text });
             if (cliente != null)
             {
+                Session["client"] = cliente;
+
                 Response.Redirect("~/Views/Servicos/vwRegistrar.aspx");
             }
             else
