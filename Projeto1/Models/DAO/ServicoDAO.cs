@@ -22,50 +22,7 @@ namespace Projeto1.Models.DAO
             try
             {
                 DataTable table = new DataTable();
-                if (nome.Equals("1"))
-                {
-                    string sql = "INSERT INTO Servico (nomeServico, valorServico, tempoMedioServico) VALUES (@nome, @valor, @tempo);";
-                    con.Command.CommandText = sql;
-                    con.Command.Parameters.AddWithValue("@nome", "Conserto motor");
-                    con.Command.Parameters.AddWithValue("@valor", 250);
-                    con.Command.Parameters.AddWithValue("@tempo", 8);
-                    con.Command.ExecuteNonQuery();
-
-                    sql = "INSERT INTO Servico (nomeServico, valorServico, tempoMedioServico) VALUES (@nome, @valor, @tempo);";
-                    con.Command.CommandText = sql;
-                    con.Command.Parameters.AddWithValue("@nome", "Conserto televisão");
-                    con.Command.Parameters.AddWithValue("@valor", 100);
-                    con.Command.Parameters.AddWithValue("@tempo", 2);
-                    con.Command.ExecuteNonQuery();
-
-                    sql = "INSERT INTO Servico (nomeServico, valorServico, tempoMedioServico) VALUES (@nome, @valor, @tempo);";
-                    con.Command.CommandText = sql;
-                    con.Command.Parameters.AddWithValue("@nome", "Conserto ferradura");
-                    con.Command.Parameters.AddWithValue("@valor", 25);
-                    con.Command.Parameters.AddWithValue("@tempo", 1);
-                    con.Command.ExecuteNonQuery();
-
-                    sql = "INSERT INTO Servico (nomeServico, valorServico, tempoMedioServico) VALUES (@nome, @valor, @tempo);";
-                    con.Command.CommandText = sql;
-                    con.Command.Parameters.AddWithValue("@nome", "Geração de energia infinita de graça");
-                    con.Command.Parameters.AddWithValue("@valor", 0);
-                    con.Command.Parameters.AddWithValue("@tempo", 999);
-                    con.Command.ExecuteNonQuery();
-
-                    sql = "INSERT INTO Servico (nomeServico, valorServico, tempoMedioServico) VALUES (@nome, @valor, @tempo);";
-                    con.Command.CommandText = sql;
-                    con.Command.Parameters.AddWithValue("@nome", "Conserto pratos");
-                    con.Command.Parameters.AddWithValue("@valor", 10);
-                    con.Command.Parameters.AddWithValue("@tempo", 1);
-                    con.Command.ExecuteNonQuery();
-
-                    sql = "INSERT INTO Servico (nomeServico, valorServico, tempoMedioServico) VALUES (@nome, @valor, @tempo);";
-                    con.Command.CommandText = sql;
-                    con.Command.Parameters.AddWithValue("@nome", "Conserto encanamento");
-                    con.Command.Parameters.AddWithValue("@valor", 1000);
-                    con.Command.Parameters.AddWithValue("@tempo", 8);
-                    con.Command.ExecuteNonQuery();
-                }
+                
 
                     if (string.IsNullOrEmpty(nome))
                 { 

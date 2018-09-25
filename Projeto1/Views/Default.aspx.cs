@@ -23,6 +23,7 @@ namespace Projeto1.Views
 
         protected void CadastrarEmpresa_Click(object sender, EventArgs e)
         {
+            Response.Redirect("~/Views/Pessoas/vwEmpresa.aspx");
 
         }
 
@@ -36,7 +37,21 @@ namespace Projeto1.Views
             }
             else
             {
-                //
+                lblResultado.Text = "Login ou Senha Inválidos";
+            }
+        }
+
+        protected void LogarEmpresa_Click(object sender, EventArgs e)
+        {
+            Empresa empresa = new EmpresaDAO().Login(new Empresa() { Email = Login.Text, Senha = Senha.Text });
+            if (empresa != null)
+            {
+
+            }
+            else
+            {
+                lblResultado.Text = "Login ou Senha Inválidos";
+
             }
         }
     }

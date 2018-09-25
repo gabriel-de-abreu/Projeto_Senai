@@ -301,5 +301,10 @@ namespace Projeto1.Views.Pessoas
                     return;
             }
         }
+
+        protected void VoltarLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Default.aspx");
+        }
     }
 }

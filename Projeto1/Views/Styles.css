@@ -10,10 +10,9 @@ label {
 }
 .input {
     margin-bottom: 10px;
+    width:100%;
 }
 .input-buttom {
-    display:inline-block;
-    width: 300px;
     margin-bottom:10px;
 }
 
@@ -47,4 +46,10 @@ table{
 }
 .input-main{
     text-align:center;
+}
+.input-buttom-margin{
+    margin-left:25%;
+}
+.normalizer-div label{
+    width:40px;
 }
